@@ -7,4 +7,4 @@
 
     echo "FLAG: Pixpay{P@th_PW3d}";
     exit;
-?>
+?> 
