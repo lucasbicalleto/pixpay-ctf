@@ -1,0 +1,31 @@
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apache-container
+    ports:
+      - "80:80"
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: RS827vCaPo21xW3Zvla09SAez
+    networks:
+      - pixpay_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-container
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: RS827vCaPo21xW3Zvla09SAez
+    networks:
+      - pixpay_network
+
+networks:
+  pixpay_network:
